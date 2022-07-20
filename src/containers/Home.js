@@ -30,9 +30,9 @@ const Home = () => {
       // track info
       const trackTitle = trackObj.track.name;
       const trackDurationMS = trackObj.track.duration_ms;
-      const trackDurationMin = Math.floor(trackDurationMS / 6000);
-      const trackDurationSec = Math.floor((trackDurationMS % 6000) / 1000);
-      const trackDurationString = `${trackDurationMin}:${trackDurationSec}`;
+      const trackDurationMin = Math.floor(trackDurationMS / 60000);
+      const trackDurationSec = Math.floor((trackDurationMS % 60000) / 1000);
+      const trackDurationString = `${trackDurationMin} min ${trackDurationSec} sec`;
 
       // artist information
       const artistsArr = trackObj.track.album.artists;

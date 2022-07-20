@@ -14,7 +14,7 @@ export default function Login() {
   return (
     <header className="login">
       {!token && !loggedIn ? (
-        <a className="app-link" href="http://localhost:3000/auth/login">
+        <a className="app-link" href="http://localhost:8080/auth/login">
           Log in to Spotify
         </a>
       ) : (

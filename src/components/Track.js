@@ -27,14 +27,14 @@ const Track = (props) => {
   };
 
   // const TrackReview = ({ review }) => {
-  //   const { rating, text, created_at } = review;
+  //   const { rating, review, created_at } = review;
 
   //   return (
   //     <div className="track-review">
   //       <span className="rating">
   //         Rating: <strong>{rating}/5</strong>
   //       </span>
-  //       <p className="review-text">Review: {text}</p>
+  //       <p className="review-text">Review: {review}</p>
   //       <span className="timestamp">
   //         Created: <strong>{created_at}</strong>
   //       </span>

@@ -18,6 +18,7 @@ module.exports = {
     // changes domain request comes from
     proxy: {
       '/': 'http://localhost:3000',
+      '/api': 'http://localhost:3000',
     },
   },
   plugins: [
