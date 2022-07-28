@@ -21,14 +21,14 @@ CREATE TABLE public.users (
   OIDS=FALSE
 );
 
-CREATE TABLE  public.reviews (
+CREATE TABLE public.reviews (
 	"_id" serial NOT NULL,
 	"rating" integer,
   "review" varchar NOT NULL,
-  "created_at" datetime,
+  "created_ON" TIMESTAMP NOT NULL,
 	CONSTRAINT "reviews_pk" PRIMARY KEY ("_id")
 ) WITH (
   OIDS=FALSE
 );
 
-ALTER TABLE public.users ADD CONSTRAINT "people_fk0" FOREIGN KEY ("reviews_id") REFERENCES  public.reviews("_id");
+ALTER TABLE public.users ADD CONSTRAINT "reviews_fk0" FOREIGN KEY ("reviews_id") REFERENCES  public.reviews("_id");
