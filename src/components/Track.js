@@ -10,6 +10,7 @@ const Track = (props) => {
     artists,
     albumTitle,
     albumCoverURL,
+    trackReview,
   } = props;
 
   let artistsString = '';
@@ -23,24 +24,22 @@ const Track = (props) => {
   const [opened, setOpened] = useState(false);
 
   const handleClick = () => {
-    setOpened(opened ? false : true);
+    console.log('opening the track');
+    setOpened(opened == true ? false : true);
   };
 
-  // const TrackReview = ({ review }) => {
-  //   const { rating, review, created_at } = review;
-
-  //   return (
-  //     <div className="track-review">
-  //       <span className="rating">
-  //         Rating: <strong>{rating}/5</strong>
-  //       </span>
-  //       <p className="review-text">Review: {review}</p>
-  //       <span className="timestamp">
-  //         Created: <strong>{created_at}</strong>
-  //       </span>
-  //     </div>
-  //   );
-  // };
+  function TrackReview({ rating, review }) {
+    return (
+      <div className="review">
+        <ul>
+          <li className="track-rating">
+            Rating: {rating ? rating + ' / 5 stars' : 'N/A'}
+          </li>
+          <li className="review-text">Review: {review ? review : 'N/A'}</li>
+        </ul>
+      </div>
+    );
+  }
 
   // const openTrack = () => {};
 
@@ -53,7 +52,7 @@ const Track = (props) => {
           className="album-cover"
           src={albumCoverURL ? albumCoverURL : 'http://goo.gl/vyAs27'}
           alt="album cover"
-          // onClick={handleClick}
+          onClick={handleClick}
         />
         <div className="track-info">
           <ul>
@@ -72,7 +71,7 @@ const Track = (props) => {
           </ul>
         </div>
       </div>
-      {opened ? TrackReview({ review }) : null}
+      {opened ? TrackReview(trackReview) : null}
     </>
   );
 };

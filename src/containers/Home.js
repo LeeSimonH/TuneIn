@@ -49,6 +49,10 @@ const Home = () => {
         artists,
         albumTitle,
         albumCoverURL,
+        trackReview: {
+          rating: 4,
+          review: 'This song gud',
+        },
       };
 
       newTracklist.push(<Track key={i} {...trackProps} />);
