@@ -1,7 +1,7 @@
 const path = require('path');
 const express = require('express');
 const app = express();
-const PORT = 3000;
+const PORT = 3001;
 
 // require('dotenv').config();
 
@@ -43,6 +43,6 @@ app.use((err, req, res, next) => {
   return res.status(errorObj.status).json(errorObj.message);
 });
 
-app.listen(3000, () => {
+app.listen(PORT, () => {
   console.log(`server listening on *:${PORT}`);
 });
