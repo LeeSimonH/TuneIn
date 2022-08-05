@@ -18,9 +18,11 @@ const Home = () => {
   const [profile, setProfile] = useState(null);
   const [playlists, setPlaylists] = useState(null);
   const [savedTracks, setSavedTracks] = useState([]);
-  // const [token, setToken] = useState(null);
+  const [token, setToken] = useState(null);
 
-  const tracks = [];
+  useEffect(() => {
+    setToken(accessToken);
+  }, []);
 
   const updateTracklist = (tracksArray) => {
     const newTracklist = [];

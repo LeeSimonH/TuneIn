@@ -12,14 +12,43 @@ export default function Login() {
   }, []);
 
   return (
-    <header className="login">
-      {!token && !loggedIn ? (
-        <a className="app-link" href="http://localhost:8080/auth/login">
-          Log in to Spotify
-        </a>
-      ) : (
-        <Navigate to="home" replace={true} />
-      )}
+    <header className="login-form">
+      <form autoComplete="off">
+        <div className="login-input">
+          <label for="username">Username</label>
+          <input
+            id="username"
+            type="text"
+            placeholder=""
+            name="username"
+            required
+          ></input>
+        </div>
+
+        <div className="login-input">
+          <label for="password">Password </label>
+          <input
+            id="password"
+            type="password"
+            minLength={8}
+            placeholder=""
+            name="password"
+            required
+          ></input>
+        </div>
+
+        <div id="login-btns">
+          <button type="submit">Login</button>
+          <button>Sign up</button>
+        </div>
+        {!token && !loggedIn ? (
+          <a className="app-link" href="http://localhost:8080/auth/login">
+            Login with Spotify
+          </a>
+        ) : (
+          <Navigate to="home" replace={true} />
+        )}
+      </form>
     </header>
   );
 }
