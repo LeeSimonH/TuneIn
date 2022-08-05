@@ -17,8 +17,8 @@ module.exports = {
     compress: true,
     // changes domain request comes from
     proxy: {
-      '/': 'http://localhost:3000',
-      '/api': 'http://localhost:3000',
+      '/': 'http://localhost:3001',
+      '/api': 'http://localhost:3001',
     },
   },
   plugins: [
