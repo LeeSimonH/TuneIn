@@ -47,10 +47,6 @@ const Track = (props) => {
     );
   }
 
-  // const openTrack = () => {};
-
-  // const closedTrack = () => {};
-
   return (
     <>
       <div className="track-container">

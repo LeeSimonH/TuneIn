@@ -130,36 +130,38 @@
 .tracks {
   padding: 2em;
   width: auto;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  column-gap: 2em;
-  grid-template-rows: auto;
-  row-gap: 2em;
+  // display: grid;
+  // grid-template-columns: repeat(2, 1fr);
+  // column-gap: 2em;
+  // grid-template-rows: auto;
+  // row-gap: 2em;
   z-index: 0;
 
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1em;
+
   .track-container {
-    width: 100%;
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    column-gap: 1em;
-    grid-template-rows: 1fr;
+    display: flex;
+    gap: 1em;
 
     .album-cover {
-      grid-column: 0 1;
-      // position: absolute;
+
     }
     .album-cover:hover {
       border: 1px solid white;
     }
     .track-info {
-      grid-column: 1 2;
-
+      margin: 0;
+      padding: 0;
       ul {
         list-style: none;
-        text-indent: -2em;
+        margin: 0;
+          padding: 0;
 
         li {
-          margin: .2em;
+          margin:.3em 0;
         }
       }
     }
@@ -179,6 +181,7 @@
     .review-background {
       width: 100%;
       height: 100%;
+      
       // position: absolute;
       // top: 0;
       // left: 0;
