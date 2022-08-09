@@ -20,6 +20,8 @@ const authRouter = require('./routes/authRouter');
 const userRouter = require('./routes/userRouter');
 const searchRouter = require('./routes/searchRouter');
 
+const authController = require('./controllers/authController');
+
 // handle requests for static files
 app.use(express.static(path.resolve(__dirname, '../public')));
 
@@ -27,6 +29,13 @@ app.use(express.static(path.resolve(__dirname, '../public')));
 app.use('/auth', authRouter);
 app.use('/user', userRouter);
 app.use('/search', searchRouter);
+
+// for refreshing home page
+app.get('/home', authController.spotifyLogin, (req, res) => {
+  const { stateKey, state, queryParams } = res.locals;
+  res.cookie(stateKey, state);
+  return res.redirect(`https://accounts.spotify.com/authorize?${queryParams}`);
+});
 
 // catch-all route handler for any requests to an unknown route
 app.use((req, res) => res.status(404).send('Sorry, this page does not exist.'));
