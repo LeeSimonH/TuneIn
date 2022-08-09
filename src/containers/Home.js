@@ -50,8 +50,8 @@ const Home = () => {
         albumTitle,
         albumCoverURL,
         trackReview: {
-          rating: 4,
-          review: 'This song gud',
+          // rating: 4,
+          // review: 'This song gud',
         },
       };
 
@@ -76,20 +76,7 @@ const Home = () => {
     catchErrors(fetchData());
   }, []);
 
-  // const trackData = [
-  //   {
-  //     trackTitle: 'Hello',
-  //     artist: 'Adele',
-  //     albumTitle: '25',
-  //     review: {
-  //       rating: 4,
-  //       text: "I feel like she's really saying hello",
-  //       created_at: Date.now,
-  //     },
-  //   },
-  // ];
-
-  console.log('your saved tracks: ', savedTracks);
+  // console.log('your saved tracks: ', savedTracks);
 
   return (
     <div className="Home">

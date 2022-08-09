@@ -1,5 +1,5 @@
 import '../App.scss';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 // import TrackReview from './TrackReview';
 
@@ -23,10 +23,68 @@ const Track = (props) => {
 
   const [opened, setOpened] = useState(false);
 
+  const [reviewing, setReviewing] = useState(false);
+  const [reviewRating, setReviewRating] = useState(0);
+  const [reviewText, setReviewText] = useState('');
+
+  useEffect(() => {
+    const { rating, review } = trackReview;
+    if (rating && review) {
+      setReviewRating(rating);
+      setReviewText(review);
+    }
+  }, []);
+
   const handleClick = () => {
-    console.log('opening the track');
     setOpened(opened == true ? false : true);
   };
+
+  function TrackReviewForm() {
+    return (
+      <div>
+        <form
+          className="review-form"
+          autoComplete="off"
+          onSubmit={(e) => {
+            e.preventDefault();
+            alert(`New review submitted: \n
+              Rating: ${reviewRating} out of 5
+              Review: ${reviewText}
+            `);
+            setReviewing(false);
+          }}
+        >
+          <label htmlFor="rating">
+            How would you rate this song out of 5 stars?
+          </label>
+          <input
+            type="number"
+            name="rating"
+            min={1}
+            max={5}
+            value={reviewRating}
+            onChange={(e) => {
+              setReviewRating(e.target.value);
+            }}
+            required
+          ></input>
+          <label htmlFor="review">
+            What do you have to say about this song?
+          </label>
+          <textarea
+            name="review"
+            placeholder="Review here..."
+            value={reviewText}
+            onChange={(e) => setReviewText(e.target.value)}
+          ></textarea>
+          <div className="review-form-buttons">
+            <input type="reset"></input>
+            <input type="submit"></input>
+          </div>
+        </form>
+      </div>
+    );
+  }
 
   function TrackReview({ rating, review }) {
     return (
@@ -34,11 +92,20 @@ const Track = (props) => {
         <div className="review">
           <ul>
             <li className="track-rating">
-              Rating: {rating ? rating + ' / 5 stars' : 'N/A'}
+              Rating: {reviewRating ? reviewRating + ' / 5 stars' : 'N/A'}
             </li>
-            <li className="review-text">Review: {review ? review : 'N/A'}</li>
+            <li className="review-text">
+              Review: {reviewText ? reviewText : 'N/A'}
+            </li>
           </ul>
+          <div>
+            <button onClick={() => setReviewing(true)}>
+              {rating && review ? 'Edit Review' : 'New Review'}
+            </button>
+          </div>
+          {reviewing ? TrackReviewForm() : <></>}
         </div>
+
         <div className="review-background"></div>
         <button onClick={handleClick} className="close-review-btn">
           x
