@@ -9,6 +9,11 @@
   color: white;
 }
 
+
+.app-link {
+  font-size: 16px;
+}
+
 .tracks::-webkit-scrollbar {
   width: 1em;
 }
@@ -27,12 +32,71 @@
   background-color: $base-color;
   height: 100vh;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
 
-  a {
+  form {
+    max-width: 600px;
+    padding-top: 10vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    gap: 1em;
+
+    div.login-input {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      gap: .5em;
+    }
+  }
+  
+  input {
+    // display: flex;
+    font-size: 16px;
+    padding: 1em;
+    border-radius: 2em;
+    border: none;
+    background-color: whitesmoke;
+    color: $base-color;
+  }
+
+  input:focus {
+    background-color: white;
+    filter: brightness(2);
+  }
+
+  div#login-btns {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 1em;
+    margin-bottom: 1em;
+  }
+
+  div#sign-up {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    button {
+      align-self: stretch;
+    }
+  }
+
+  button {
     font-weight: 600;
-    font-size: 125%;
+    font-size: 16px;
+    background-color: $turqoise;
+    padding: 1em 2em;
+    border: none;
+    border-radius: 2em;
+    cursor: pointer;
+  }
+
+    #spotify-login, 
+    a {
+    font-weight: 600;
     text-decoration: none;
     display: inline-block;
     background: $spotify-green;
@@ -41,7 +105,7 @@
     border-radius: 2em
   }
 
-  a:hover, a:focus {
+  button:hover, button:focus , a:hover, a:focus {
     text-decoration: none;
     filter:brightness(1.1)
   }
@@ -191,11 +255,6 @@
       }
     }
   }
-}
-
-
-.app-link {
-  color: $base-color;
 }
 
 .nav {
