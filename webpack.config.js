@@ -15,11 +15,14 @@ module.exports = {
     },
     port: 8080,
     compress: true,
+    hot: true,
     // changes domain request comes from
-    proxy: {
-      '/': 'http://localhost:3001',
-      '/api': 'http://localhost:3001',
-    },
+    proxy: [
+      {
+        context: ['/', '/api', '/auth'],
+        target: 'http://localhost:3001',
+      },
+    ],
   },
   plugins: [
     new HtmlWebpackPlugin({

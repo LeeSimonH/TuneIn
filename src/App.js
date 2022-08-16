@@ -32,16 +32,6 @@ function App() {
             }
           />
         </Routes>
-        {/* <Routes>
-          <Route path="/" element={<Login />} />
-          <Route path="home" element={<Home />} />
-          <Route
-            path="*"
-            element={
-              <main style={{ padding: '1rem' }}>There's nothing here!</main>
-            }
-          />
-        </Routes> */}
       </BrowserRouter>
     </div>
   );
