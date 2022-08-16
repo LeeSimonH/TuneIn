@@ -9,6 +9,10 @@
   color: white;
 }
 
+.app-link {
+  font-size: 16px;
+}
+
 header.login-form {
   background-color: $base-color;
   height: 100vh;
@@ -55,19 +59,29 @@ header.login-form {
     margin-bottom: 1em;
   }
 
+  div#sign-up {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    button {
+      align-self: stretch;
+    }
+  }
+
   button {
     font-weight: 600;
     font-size: 16px;
-    background-color: $spotify-green ;
+    background-color: $turqoise;
     padding: 1em 2em;
     border: none;
     border-radius: 2em;
     cursor: pointer;
   }
 
-  a {
+    #spotify-login, 
+    a {
     font-weight: 600;
-    font-size: 125%;
     text-decoration: none;
     display: inline-block;
     background: $spotify-green;
@@ -109,10 +123,6 @@ header.login-form {
       margin:0
     }
   }
-}
-
-.app-link {
-  color: $base-color;
 }
 
 .nav {
