@@ -9,8 +9,8 @@ export default function Login() {
   const toggleTheme = useThemeUpdate();
 
   const themeStyles = {
-    backgroundColor: darkTheme ? 'black' : 'white',
-    color: darkTheme ? 'white' : 'black',
+    backgroundColor: darkTheme ? '#191414' : 'white',
+    color: darkTheme ? 'white' : '#191414',
   };
 
   const [token, setToken] = useState(null);
@@ -169,7 +169,9 @@ export default function Login() {
   }
 
   return (
-    <header className="login-form">
+    <header
+      className={darkTheme ? 'login-form darkTheme' : 'login-form lightTheme'}
+    >
       {signingUp ? SignUp() : Login()}
 
       <div>

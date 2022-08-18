@@ -13,8 +13,28 @@
   font-size: 16px;
 }
 
-header.login-form {
+.darkTheme {
   background-color: $base-color;
+  color: white;
+  * {
+    background-color: $base-color;
+    color: white;
+  }
+  
+}
+
+.lightTheme {
+  background-color: white;
+  color: $base-color;
+  * {
+    background-color: white;
+    color: $base-color;
+  }
+  
+}
+
+header.login-form {
+  // background-color: $base-color;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -97,7 +117,7 @@ header.login-form {
 }
 
 .Home {
-  background-color: $base-color;
+  // background-color: $base-color;
   height: auto;
   display: flex;
   flex-direction: column;
