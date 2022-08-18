@@ -1,5 +1,6 @@
 import '../App.scss';
 import React, { useState, useEffect } from 'react';
+import { useTheme, useThemeUpdate } from './ThemeContext';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import {
@@ -15,6 +16,9 @@ import Track from '../components/Track';
 import ProfileData from '../components/ProfileData';
 
 const Home = () => {
+  const darkTheme = useTheme();
+  // const toggleTheme = useThemeUpdate();
+
   const [profile, setProfile] = useState(null);
   const [playlists, setPlaylists] = useState(null);
   const [savedTracks, setSavedTracks] = useState([]);
@@ -81,7 +85,7 @@ const Home = () => {
   // console.log('your saved tracks: ', savedTracks);
 
   return (
-    <div className="Home">
+    <div className={darkTheme ? 'Home darkTheme' : 'Home lightTheme'}>
       <Navbar />
       {profile && <ProfileData profile={profile} playlists={playlists} />}
       <div className="tracks">{savedTracks}</div>
