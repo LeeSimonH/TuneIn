@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom';
+import { ThemeProvider } from './containers/ThemeContext';
 import './App.scss';
 
 import Home from './containers/Home';
@@ -19,21 +20,23 @@ function ScrollToTop() {
 
 function App() {
   return (
-    <div className="App">
-      <BrowserRouter>
-        <ScrollToTop />
-        <Routes>
-          <Route path="home" element={<Home />} />
-          <Route path="/" element={<Login />} />
-          <Route
-            path="*"
-            element={
-              <main style={{ padding: '1rem' }}>There's nothing here!</main>
-            }
-          />
-        </Routes>
-      </BrowserRouter>
-    </div>
+    <ThemeProvider>
+      <div className="App">
+        <BrowserRouter>
+          <ScrollToTop />
+          <Routes>
+            <Route path="home" element={<Home />} />
+            <Route path="/" element={<Login />} />
+            <Route
+              path="*"
+              element={
+                <main style={{ padding: '1rem' }}>There's nothing here!</main>
+              }
+            />
+          </Routes>
+        </BrowserRouter>
+      </div>
+    </ThemeProvider>
   );
 }
 

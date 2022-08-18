@@ -1,9 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import { Navigate } from 'react-router-dom';
+import { useTheme, useThemeUpdate } from './ThemeContext';
 
 import { accessToken } from '../spotify';
 
 export default function Login() {
+  const darkTheme = useTheme();
+  const toggleTheme = useThemeUpdate();
+
+  const themeStyles = {
+    backgroundColor: darkTheme ? 'black' : 'white',
+    color: darkTheme ? 'white' : 'black',
+  };
+
   const [token, setToken] = useState(null);
   const [signingUp, setSigningUp] = useState(false);
 
@@ -162,7 +171,11 @@ export default function Login() {
   return (
     <header className="login-form">
       {signingUp ? SignUp() : Login()}
+
       <div>
+        <button style={themeStyles} onClick={() => toggleTheme()}>
+          {darkTheme ? `change to Light` : 'change to Dark'}
+        </button>
         <p>Registered users:</p>
         {registeredUsers.map((userObj, i) => {
           return (

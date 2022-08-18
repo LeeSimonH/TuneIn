@@ -9,26 +9,11 @@
   color: white;
 }
 
-
 .app-link {
   font-size: 16px;
 }
 
-.tracks::-webkit-scrollbar {
-  width: 1em;
-}
-
-.tracks::-webkit-scrollbar-track {
-  color: white;
-}
-
-.tracks::-webkit-scrollbar-thumb {
-  background-color: $spotify-green;
-  border-radius: 1em;
-  border: 2px solid $base-color;
-}
-
-.login {
+header.login-form {
   background-color: $base-color;
   height: 100vh;
   display: flex;
@@ -94,8 +79,8 @@
     cursor: pointer;
   }
 
-    #spotify-login, 
-    a {
+  #spotify-login, 
+  a {
     font-weight: 600;
     text-decoration: none;
     display: inline-block;
@@ -113,7 +98,7 @@
 
 .Home {
   background-color: $base-color;
-  height: 100vh;
+  height: auto;
   display: flex;
   flex-direction: column;
 
@@ -136,123 +121,6 @@
     }
     p {
       margin:0
-    }
-  }
-
-  .tracks {
-    padding: 2em;
-    width: auto;
-    height: 70%;
-    z-index: 0;
-
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1em;
-    overflow-y: scroll;
-
-    .track-container {
-      display: flex;
-      gap: 1em;
-
-      .album-cover:hover {
-        border: 1px solid white;
-      }
-
-      .track-info {
-        margin: 0;
-        padding: 0;
-
-        ul {
-          list-style: none;
-          margin: 0;
-          padding: 0;
-
-          li {
-            margin: .3em 0;
-          }
-        }
-      }
-    }
-
-    .review-container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      z-index: 2;
-
-      .review-background {
-        width: 100%;
-        height: 100%;
-
-        background-color: black;
-        filter: opacity(.50);
-        z-index: 3;
-      }
-
-      .review {
-        width: 60vw;
-        min-width: 300px;
-        height: auto;
-        background-color: white;
-        box-shadow: 5px 5px 5px black;
-        border: 1px solid white;
-        border-radius: .5em;
-        filter: opacity(2);
-
-        position: absolute;
-        top: 45vh;
-        left: 20vw;
-
-        z-index: 4;
-
-        ul {
-          list-style: none;
-
-          li {
-            margin-bottom: 1em;
-            color: $base-color;
-          }
-        }
-      }
-
-      .review-form {
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        padding: 1em;
-        gap: 1em;
-
-        * {
-          color: $base-color;
-          font-size: 1rem;
-        }
-        input[type='submit'],
-        input[type='reset'] {
-          padding: .5em 1em;
-        }
-      }
-
-      .close-review-btn {
-        z-index: 4;
-        background-color: transparent;
-        border: none;
-        position: absolute;
-        right: 14vw;
-        top: 41vh;
-        font-size: 2em;
-        font-weight: bold;
-      }
-
-      button.close-review-btn:hover {
-        cursor: pointer;
-        color: $green-mid;
-      }
     }
   }
 }
@@ -318,7 +186,63 @@
   margin-bottom: 2em;
 }
 
+.tracks {
+  padding: 2em;
+  width: auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 2em;
+  grid-template-rows: auto;
+  row-gap: 2em;
 
+  .track-container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    column-gap: 1em;
+    grid-template-rows: 1fr;
+
+    .album-cover {
+      grid-column: 0 1;
+    }
+    .album-cover:hover {
+      border: 1px solid white;
+    }
+    .track-info {
+      grid-column: 1 2;
+
+      ul {
+        list-style: none;
+        text-indent: -2em;
+
+        li {
+          margin: .2em;
+        }
+      }
+    }
+    
+  }
+  .review {
+    // width: auto;
+    background-color: $base-color;
+    box-shadow: 5px 5px 5px black;
+    border: 1px solid white;
+    border-radius: .5em;
+
+    position: relative;
+    z-index: 5;
+
+    ul {
+      list-style: none;
+
+      li {
+        margin-bottom: 1em;
+      }
+    }
+  }
+  
+  
+}
 
 img.album-cover {
   height: 200px;
